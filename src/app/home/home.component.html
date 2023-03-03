@@ -1,0 +1,134 @@
+<main class="home-container">
+
+    <div class="home-info flex flex-col justify-center text-center pt-10">
+        <h2 class="text-4xl font-bold pb-5">BOOK YOUR BARBER</h2>
+        <div class="px-3">
+        <p class="">Great Hair Doesn't Happen By Chance. It Happens By Appointment!</p>
+        <p class="">So Dont't Wait And Book Your Appointment Now!</p>
+      </div>
+    </div>
+
+    <div class="image-container flex justify-center p-6 ">
+        <div class="image p-2 lg:w-1/2">
+         <img src="assets/image.jpg"/>
+        </div>
+    </div>
+
+
+    <section class="form-container flex justify-center">
+        <div class="form text-center mb-3">
+            <h2 class="p-4">BOOK YOUR APPOINTMENT</h2>
+
+    <form (submit)="onSubmit()" class="" [formGroup]="form">
+
+        <div class="name-surname flex flex-wrap flex-col content-center lg:flex-row lg:justify-center lg:mb-6">
+
+          <input type="text" id="name" name="name"  placeholder="First Name" class="mb-2  w-11/12  lg:w-40 lg:mx-1  " required  formControlName="name">          
+          <input type="text" id="surname" name="surname" placeholder="Last Name" class="mb-2  w-11/12 lg:w-40  lg:mx-1 " required formControlName="surname">
+
+         <div *ngIf="(submitted && form.controls['service'].invalid) || form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" class="full-name text-red-500 mb-1">
+            Please enter your full name.
+          </div>
+
+        </div>
+
+      <div class="email-contact flex flex-wrap flex-col content-center lg:flex-row lg:justify-center">
+        <div class="w-ful lg:w-auto">
+
+          <input type="text" id="email" name="email" placeholder="Email"  class="mb-2  w-11/12 lg:w-40 lg:mx-1" required formControlName="email">
+
+          <div *ngIf="(submitted && form.controls['service'].invalid) || form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="text-red-500 mb-1">
+            Please enter a valid email.
+          </div>
+
+        </div>
+
+        <div class="w-full lg:w-auto">
+
+            <input type="text" id="number" name="number" placeholder="Contact Number" class="mb-2  w-11/12 lg:w-40 lg:mx-1" required formControlName="contactNumber">
+
+            <div *ngIf="(submitted && form.controls['service'].invalid) || form.controls['contactNumber'].invalid && (form.controls['contactNumber'].dirty || form.controls['contactNumber'].touched)" class="text-red-500 mb-1">
+              Please enter phone number.
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="name-surname flex flex-wrap flex-col content-center lg:flex-row lg:justify-center lg:mb-6">
+
+          <div class="w-full lg:w-auto">
+            <select id="barber" name="barber" class="mb-2  w-11/12 lg:w-40 lg:mx-1" formControlName="barber">
+                <option value="" disabled selected>Select Barber</option>
+                <option *ngFor="let barber of barbers" [value]="barber.id">{{barber.firstName}} {{barber.lastName}}</option>
+              </select>
+              <div *ngIf="(submitted && form.controls['service'].invalid) || form.controls['barber'].invalid && (form.controls['barber'].dirty || form.controls['barber'].touched)" class="text-red-500 mb-1">
+                Please select a barber.
+              </div>
+            </div>
+              <div class="">
+              <select id="service" name="service" class="mb-2  w-11/12 lg:w-40 lg:mx-1" formControlName="service" (change)="onServiceChange($event)">
+                <option value="" disabled selected>Select a service</option>
+                <option *ngFor="let service of services" [value]="service.id">{{service.name}}</option>
+              </select>
+
+              <div *ngIf="(submitted && form.controls['service'].invalid) || form.controls['service'].invalid && (form.controls['service'].dirty || form.controls['service'].touched)" class="text-red-500 mb-1">
+                Please select a service.
+              </div>
+            </div>
+        
+        </div>
+
+           <div class="date-time flex flex-wrap flex-col content-center lg:flex-row lg:justify-center">
+   
+            <div class="w-full lg:w-auto">
+              <input type="date" id="birthdate" name="birthdate"  class="mb-2 w-11/12 lg:w-40 lg:mx-1" placeholder="Select Date" formControlName="date">
+
+          <!--  <mat-form-field class="example-full-width mb-2 w-11/12 lg:w-44 lg:mx-1 lg:h-2/3" appearance="fill">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepickerFilter]="weekendsDatesFilter" [matDatepicker]="picker">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>-->
+            
+
+                <div *ngIf="(submitted && form.controls['date'].invalid) || form.controls['date'].invalid && (form.controls['date'].dirty || form.controls['date'].touched)" class="text-red-500 mb-1">
+                  Please pick a date.
+                </div>
+
+            </div>
+
+
+            <div class="w-full lg:w-auto">
+              <input type="time"  class="mb-2  w-11/12 lg:w-40 lg:mx-1" formControlName="time" placeholder="Select a time">
+
+
+            <div *ngIf="(submitted && form.controls['time'].invalid) || form.controls['time'].invalid && (form.controls['time'].dirty || form.controls['time'].touched)" class="text-red-500 mb-1">
+                Please pick a time.
+              </div>
+            </div>
+           </div>
+           
+           <div class="price-info w-full">
+            <input type="text" disabled [placeholder]="price" class="input-price w-11/12">
+           </div>
+      
+           <div class="button-submit">
+        <button type="submit" class="p-2 mb-3 mt-5 w-11/12 mb-7 lg:w-full" [disabled]="!form.valid">BOOK APPOINTMENT</button>
+      </div>
+
+      
+        
+        
+
+       
+        
+
+      </form>
+
+    
+      
+    </div>
+  </section>
+      
+</main>

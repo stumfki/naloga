@@ -1,0 +1,110 @@
+.home-info h2 
+    font-family: Squada One 
+    font-size: 40px
+    font-weight: 500
+    letter-spacing: 1px
+
+.home-info p 
+    font-family: 'Roboto Slab'
+    font-weight: 500
+
+
+img
+    aspect-ratio: 6/4
+    width: 100%
+    
+
+.image 
+    border: 2px solid black
+
+.form
+    background-color: #1b2644
+    width: 90%
+
+.form h2 
+    color: white
+    font-size: 30px
+    font-weight: 500
+
+button 
+    background-color: #fe9563
+    border-radius: 50px
+    color: white
+    transition: 1s
+
+button:disabled 
+  background-color: #ccc
+  
+button:not(:disabled):hover
+    background-color: green
+
+input::placeholder
+    font-family: 'Roboto Slab'
+    font-size: 14px
+    font-weight: 500
+    color: #7e7e7e
+
+input, select 
+    padding: 0.4rem
+
+.date-input
+    height: 50px
+
+.input-price
+    background-color: #fff
+
+
+
+
+
+
+// Media Queries
+
+@media screen and (min-width: 1024px) and (max-width: 1636px)
+   .form-container
+        position: absolute
+        right: 15%
+        bottom: 0
+        width: 430px
+
+   .input-price, button
+        width: 20.6rem
+
+   .image-container
+        position: absolute 
+        right: 7%
+        
+
+
+@media screen and (min-width: 1636px)
+    .home-info h2 
+        font-size: 4rem
+    
+    .home-info p 
+        font-size: 1.6rem
+    .form-container
+        position: absolute
+        right: 20%
+        bottom: 0
+        
+        width: 520px
+    form 
+        margin-bottom: 4rem
+
+    input, select
+        padding: 15px
+        width: 13rem
+    button, .input-price
+        padding: 16px
+        margin-top: 3rem
+        margin-bottom: 0
+        width: 27rem
+    
+    .form h2 
+        font-size: 2rem
+        margin-top: 0.5rem
+        margin-bottom: 1rem
+    .name-surname
+        margin-bottom: 15px
+
+     
